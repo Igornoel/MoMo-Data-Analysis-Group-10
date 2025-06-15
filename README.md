@@ -1,61 +1,139 @@
 # MoMo Data Analysis - End-to-End Application
 
-This repository contains a fullstack application built to process, interpret, and visualize transaction data from MTN MoMo SMS messages. The solution includes a backend for data parsing and storage, a relational database to organize and maintain transaction records, and a user-facing dashboard for interactive data exploration.
+A comprehensive fullstack application designed to process, analyze, and visualize MTN Mobile Money (MoMo) transaction data from SMS messages. This solution provides end-to-end functionality from data ingestion to interactive dashboard visualization.
 
----
+##  Overview
 
-## **Main Features**
+This application transforms raw MTN MoMo SMS data into actionable insights through automated data processing and interactive visualizations. Built with a focus on data integrity and user experience, it provides a complete solution for transaction data analysis.
 
-### 1. **SMS Data Processing**
-- Reads and sanitizes transaction data from XML SMS files.
-- Automatically classifies transactions (e.g., Incoming Funds, Payments, Transfers).
-- Logs invalid or unrecognized data entries for review.
+##  Features
 
-### 2. **Relational Database**
-- Utilizes a normalized schema to efficiently store structured data.
-- Saves processed and tagged transaction records in SQLite.
+###  SMS Data Processing
+- **Automated Data Extraction**: Reads and sanitizes transaction data from XML SMS files
+- **Smart Classification**: Automatically categorizes transactions (Incoming Funds, Payments, Transfers, etc.)
+- **Error Handling**: Logs invalid or unrecognized data entries for manual review
+- **Data Validation**: Ensures data integrity through comprehensive validation rules
 
-### 3. **User Interface (Dashboard)**
-- Developed using HTML, CSS, and vanilla JavaScript.
-- Core features include:
-  - Transaction search and filters (by amount, date, or category).
-  - Dynamic visualizations using bar and pie charts.
-  - In-depth inspection of transaction details.
-- Fetches data directly from the database in JSON format (no server or Flask API used).
+###  Database Management
+- **Normalized Schema**: Efficiently organized relational database structure
+- **SQLite Integration**: Lightweight, serverless database solution
+- **Data Persistence**: Secure storage of processed transaction records
+- **Query Optimization**: Fast data retrieval for dashboard operations
 
-### 4. **Backend Automation**
-- Python scripts parse XML data and populate the database.
-- JavaScript on the frontend fetches and displays transaction data via the Fetch API.
+###  Interactive Dashboard
+- **Modern UI**: Clean, responsive interface built with vanilla JavaScript
+- **Advanced Filtering**: Search and filter by amount, date range, transaction type, and more
+- **Dynamic Visualizations**: Interactive bar charts and pie charts using Chart.js
+- **Transaction Details**: Comprehensive view of individual transaction records
+- **Real-time Updates**: Live data fetching without page refresh
 
----
+### Backend Automation
+- **Batch Processing**: Efficient handling of large SMS datasets
+- **Automated Pipeline**: Streamlined data flow from XML to database
+- **RESTful Architecture**: JSON-based data exchange between frontend and backend
 
-## **Technology Stack**
+## Technology Stack
 
-- **Backend**: Python (`xml.etree.ElementTree`, `sqlite3`)
-- **Frontend**: HTML, CSS, JavaScript (uses Chart.js)
-- **Database**: SQLite
-- **Version Control**: Git & GitHub
+| Category | Technologies |
+|----------|-------------|
+| **Backend** | Python 3.8+, xml.etree.ElementTree, sqlite3 |
+| **Frontend** | HTML5, CSS3, JavaScript (ES6+) |
+| **Visualization** | Chart.js |
+| **Database** | SQLite 3.0+ |
+| **Version Control** | Git, GitHub |
 
----
+## Installation
 
-## **How to Get Started**
+### Prerequisites
 
-### 1. **Clone the Repository**
-Clone the codebase to your machine:
+- Python 3.8 or higher
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+- Git
+
+### Step 1: Clone the Repository
+
 ```bash
-git clone https://github.com/your_user/repo_name
-cd repo_name
+git clone https://github.com/Igornoel/MoMo-Data-Analysis-Group-10
+cd MoMo-Data-Analysis-Group-10
+```
 
-## 2. Set Up the Backend:**
-Install necessary dependencies:
+### Step 2: Set Up Python Environment
 
+```bash
+# Create virtual environment (recommended)
+python -m venv venv
+
+# Activate virtual environment
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+
+# Install dependencies
 pip install -r requirements.txt
-Run the Python script to process the SMS data and populate the database:
-python backend/populate_db.py
+```
 
-## 3. Launch the Frontend:
-Open the frontend/index.html file in your browser. The frontend will automatically fetch transaction data in JSON format from the backend and display it in interactive charts and tables.
+### Step 3: Prepare Your Data
 
-This `README.md` is structured for clarity and includes all the instructions and details about setting up and running the application. You can now add this file to your project repository, and it will be ready for others to use.
+1. Place your XML SMS files in the home directory
+2. Ensure files follow the expected XML format (see documentation)
 
+### Step 4: Initialize Database
 
+```bash
+# Process SMS data and populate database
+python backend/database_setup.py
+```
+
+### Step 5: Launch Dashboard
+
+1. Open `frontend/index.html` in your web browser
+2. The dashboard will automatically load and display your transaction data
+
+## Usage
+
+### Processing New Data
+
+To process additional SMS files:
+
+```bash
+# Add new XML files to data/raw/
+# Run the processing script
+python backend/database_setup.py --update
+```
+
+### Dashboard Navigation
+
+1. **Overview Tab**: Summary statistics and key metrics
+2. **Transactions Tab**: Detailed transaction list with filtering
+3. **Analytics Tab**: Interactive charts and visualizations
+4. **Reports Tab**: Generate and export custom reports
+
+### Filtering Data
+
+- **Date Range**: Use the date picker to filter by time period
+- **Amount Range**: Set minimum and maximum transaction amounts
+- **Transaction Type**: Filter by category (Payment, Transfer, etc.)
+- **Search**: Use keywords to find specific transactions
+
+## 🔌 API Reference
+
+The frontend communicates with the SQLite database through JavaScript's Fetch API. Key endpoints include:
+
+- `GET /api/transactions`: Retrieve transaction list
+- `GET /api/analytics`: Get analytics data
+- `GET /api/summary`: Fetch summary statistics
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- MTN for MoMo services
+- Chart.js community for visualization tools
+- SQLite team for the excellent database engine
+
+---
+
+**Made with ❤️ for financial data analysis**
