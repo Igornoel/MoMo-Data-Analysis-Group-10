@@ -97,7 +97,7 @@ python backend/database_setup.py
 To process additional SMS files:
 
 ```bash
-# Add new XML files to data/raw/
+# Add new XML files
 # Run the processing script
 python backend/database_setup.py --update
 ```
