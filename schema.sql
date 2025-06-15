@@ -1,13 +1,10 @@
 CREATE TABLE transactions (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    transaction_id TEXT UNIQUE,
-    transaction_type TEXT,
-    sender TEXT,
-    receiver TEXT,
-    amount INTEGER,
-    fee INTEGER,
+    CATEGORY TEXT,
+    AMOUNT INTEGER,
+    RECIPIENT TEXT,
+    TRANSACTION_TYPE TEXT,
     date TIMESTAMP,
-    extra_details TEXT
+    MESSAGE_BODY TEXT
 );
 
 CREATE TABLE logs (

@@ -1,6 +1,6 @@
 import sqlite3
 
-DB_NAME = "../Data/sms_transactions.db"
+DB_NAME = "../MTN.db"
 
 def create_database():
     conn = sqlite3.connect(DB_NAME)
@@ -8,15 +8,12 @@ def create_database():
 
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS transactions (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        transaction_id TEXT UNIQUE,
-        transaction_type TEXT,
-        sender TEXT,
-        receiver TEXT,
-        amount INTEGER,
-        fee INTEGER,
+        CATEGORY TEXT,
+        AMOUNT INTEGER,
+        RECIPIENT TEXT,
+        TRANSACTION_TYPE TEXT,
         date TIMESTAMP,
-        extra_details TEXT
+        MESSAGE_BODY TEXT
     )''')
 
     conn.commit()
