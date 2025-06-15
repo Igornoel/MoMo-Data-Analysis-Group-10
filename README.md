@@ -124,9 +124,9 @@ The frontend communicates with the SQLite database through JavaScript's Fetch AP
 - `GET /api/analytics`: Get analytics data
 - `GET /api/summary`: Fetch summary statistics
 
-## License
+## Video
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+The brief video walkthrough link of our project <https://www.loom.com/share/8632519a5fd940ec817b4b2656b3884d?sid=f7765a64-bb2e-4ccd-b26a-47e341fa2889>
 
 ## Acknowledgments
 
