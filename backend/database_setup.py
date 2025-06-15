@@ -67,7 +67,7 @@ if __name__ == "__main__":
     create_database(db_path)
 
     # Step 2: Load normalized data from JSON
-    with open("normalized_data.json", "r", encoding="utf-8") as f:
+    with open("structured_data.json", "r", encoding="utf-8") as f:
         normalized_data = json.load(f)
 
     # Convert datetime objects to strings for storage
